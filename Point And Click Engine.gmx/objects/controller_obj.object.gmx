@@ -26,7 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>global.roomGrids = ds_map_create();
+init_globals();
 alarm[0] = 2;
+
+show_debug_message("MAP: "+string(ds_type_map));
+show_debug_message("LIST: "+string(ds_type_list));
+show_debug_message("GRID: "+string(ds_type_grid));
+show_debug_message("QUEUE: "+string(ds_type_queue));
+show_debug_message("STACK: "+string(ds_type_stack));
+show_debug_message("PRIORITY: "+string(ds_type_priority));
 </string>
           </argument>
         </arguments>
@@ -73,7 +81,7 @@ room_goto_next();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>window_set_caption("FPS: "+string(fps));
+            <string>calculate_mouse_object();
 </string>
           </argument>
         </arguments>

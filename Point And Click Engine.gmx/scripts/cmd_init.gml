@@ -1,12 +1,13 @@
 ///cmd_init()
-//Initalizes the command list for the object
+//Initalizes the command system for an object
 
 //The current list of commands to play when the time comes.
-cmdList = ds_list_create();
+cmd_list = sds_local_list_create();
 
-cmdIndex = 0;
-cmdPlaying = false;
-cmdPaused = false;
+cmd_index = 0;
+//The currently playing command.
+cmd_current = NULL;
 
-//An extra list of the maps that should be freed at the end of the object's life incase someone forgets to.
-cmdMaps = ds_list_create();
+cmd_enabled = true;
+cmd_playing = false;
+cmd_paused = false;

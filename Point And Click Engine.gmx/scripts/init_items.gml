@@ -2,8 +2,8 @@
 
 
 //Item IDs:Item map refs
-global.itemMap = ds_map_create();
+global.itemMap = sds_global_map_create();
 //Item names:Item IDs
-global.itemNames = ds_map_create();
+global.itemNames = sds_global_map_create();
 
 

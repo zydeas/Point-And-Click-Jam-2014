@@ -20,6 +20,8 @@
         sds_global_grid_create(w,h); 
 */
 
+global.sds_debug = true;
+
 //GLOBALS
 global.sds_globals[ds_type_map] = ds_list_create();
 global.sds_globals[ds_type_grid] = ds_list_create();
@@ -30,11 +32,16 @@ global.sds_globals[ds_type_priority] = ds_list_create();
 global.sds_global_log = ds_list_create();
 
 //LOCALS
-global.sds_locals = ds_list_create();
+global.sds_locals = ds_map_create();
 global.sds_locals_reg = ds_list_create();
 global.sds_local_log = ds_list_create();
 
 //GARBAGE COLLECTOR
 global.sds_gc_enabled = true;
+global.sds_gc_global_enabled = true;
+global.sds_gc_local_enabled = true;
 global.sds_gc_freeAllOnExit = true;
-global.sds_gc_log = ds_list_create();
+sds_gc_log = ds_list_create();
+
+sds_gc_tick_seconds = 5;
+sds_gc_tick_progress = sds_gc_tick_seconds*room_speed;

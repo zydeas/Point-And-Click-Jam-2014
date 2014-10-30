@@ -147,7 +147,12 @@ depth = -y;
             <string>if canMove
 {
     calculate_mouse_object();
-    var path = calculate_walk_path(tempPath,x,y,mouse_x,mouse_y);
+    cmd_list_add(cmd.setPathToXY,self,cmds("endx",mouse_x),cmds("endy",mouse_x),cmds("path",tempPath));
+    cmd_list_add(cmd.startPath,self,cmds("path",tempPath),cmds("speed",walkSpeed));
+    cmd_list_enact(cmd_list[| 0]);
+    cmd_list_enact(cmd_list[| 1]);
+    
+    /*var path = calculate_walk_path(tempPath,x,y,mouse_x,mouse_y);
     if global.objUnder = NULL
     {
         if path
@@ -161,7 +166,7 @@ depth = -y;
         {
             
         }
-    }
+    }*/
 }
 </string>
           </argument>

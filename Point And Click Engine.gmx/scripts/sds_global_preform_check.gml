@@ -6,8 +6,9 @@ if argument0 >0 or argument0 < 7
     {
         if !ds_exists(ds_list_find_value(global.sds_globals[argument0],i),argument0)
         {
-            show_debug_message("Freed sds_"+string(ds_list_find_value(global.sds_globals[argument0],i))+":list_"+string(i));
+            show_debug_message("-sds_g_"+string(ds_list_find_value(global.sds_globals[argument0],i)));
             ds_list_delete(global.sds_globals[argument0],i);
+            i--;
         }
     }
 }

@@ -21,6 +21,7 @@
     <path>paths\path0</path>
     <path>paths\path1</path>
     <path>paths\tempPath</path>
+    <path>paths\default_player_path</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Point In Poly">
@@ -39,8 +40,13 @@
     </scripts>
     <scripts name="Commands">
       <script>scripts\cmd_init.gml</script>
-      <script>scripts\cmd_free.gml</script>
-      <script>scripts\cmd_list_add.gml</script>
+      <script>scripts\cmds.gml</script>
+      <scripts name="list">
+        <script>scripts\cmd_list_add.gml</script>
+        <script>scripts\cmd_list_clear.gml</script>
+        <script>scripts\cmd_list_start.gml</script>
+        <script>scripts\cmd_list_enact.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\enums.gml</script>
     <script>scripts\anim_init.gml</script>
@@ -74,19 +80,42 @@
     <script>scripts\calculate_walk_path.gml</script>
     <script>scripts\init_globals.gml</script>
     <script>scripts\calculate_mouse_object.gml</script>
-    <script>scripts\init_items.gml</script>
+    <scripts name="Items">
+      <script>scripts\init_items.gml</script>
+    </scripts>
     <scripts name="SmartDS">
       <script>scripts\sds_init.gml</script>
       <scripts name="Local">
-        <script>scripts\sds_local_create.gml</script>
+        <script>scripts\sds_local_instance_register.gml</script>
+        <script>scripts\sds_local_instance_is_registered.gml</script>
+        <scripts name="Creation">
+          <script>scripts\sds_local_list_create.gml</script>
+          <script>scripts\sds_local_map_create.gml</script>
+          <script>scripts\sds_local_grid_create.gml</script>
+          <script>scripts\sds_local_queue_create.gml</script>
+          <script>scripts\sds_local_stack_create.gml</script>
+          <script>scripts\sds_local_priority_create.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Global">
         <script>scripts\sds_global_tick.gml</script>
         <script>scripts\sds_global_preform_check.gml</script>
-        <script>scripts\sds_global_map_create.gml</script>
+        <scripts name="Creation">
+          <script>scripts\sds_global_map_create.gml</script>
+          <script>scripts\sds_global_list_create.gml</script>
+          <script>scripts\sds_global_grid_create.gml</script>
+          <script>scripts\sds_global_stack_create.gml</script>
+          <script>scripts\sds_global_queue_create.gml</script>
+          <script>scripts\sds_global_priority_create.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="Garbage Collector">
+        <script>scripts\sds_gc_tick.gml</script>
+        <script>scripts\sds_gc_local_tick.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\sds_local_instance_register.gml</script>
+    <script>scripts\parse_args.gml</script>
+    <script>scripts\map_contains_all.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\character_obj</object>
@@ -100,16 +129,25 @@
     <objects name="Control">
       <objects name="SDS">
         <object>objects\sds_controller_obj</object>
+        <object>objects\sds_test_obj</object>
       </objects>
+      <objects name="Command">
+        <object>objects\cmd_test_obj</object>
+      </objects>
+    </objects>
+    <objects name="World">
+      <object>objects\world_action_par</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\systems_init_room</room>
     <room>rooms\game_init_room</room>
     <room>rooms\game_test_room</room>
+    <room>rooms\cmd_test_room</room>
+    <room>rooms\sds_test_room</room>
   </rooms>
   <constants number="24">
-    <constant name="GM_build_date">41939.9684136806</constant>
+    <constant name="GM_build_date">41942.3127107523</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
     <constant name="NULL">-1</constant>
     <constant name="MP_CELL_SIZE_X">16</constant>

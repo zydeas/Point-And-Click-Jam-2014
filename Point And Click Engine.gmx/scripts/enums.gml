@@ -5,7 +5,10 @@ enum cmd
 {
     setAnimation,
     playAnimation,
-    walkToXY
+    setPathToXY,
+    startPath,
+    wait,
+    createInstance
 }
 
 enum itemTags
@@ -19,5 +22,7 @@ enum itemTags
 
 enum sdsLocals
 {
-    sds_id
+    sds_id,
+    sds_ds,
+    sds_types
 }
